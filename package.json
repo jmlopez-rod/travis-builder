@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/jmlopez-rod/travis-builder.git",
   "author": "Manuel Lopez",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "6.1.1"
+  }
 }

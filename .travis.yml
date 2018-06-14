@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- 8
+branches:
+  only:
+  - master
+cache:
+  yarn: true
+  directories:
+  - "./node_modules"
+script:
+- node break.js
+- echo "$GITHUB_TOKEN"
+- cat .npmrc
+before_install:
+  - env

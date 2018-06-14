@@ -9,8 +9,8 @@ cache:
   directories:
   - "./node_modules"
 script:
-- node break.js
+- env
 - echo "$GITHUB_TOKEN"
 - cat .npmrc
 before_install:
-  - env
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc

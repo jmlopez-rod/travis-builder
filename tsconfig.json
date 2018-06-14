@@ -6,9 +6,11 @@
       "*": ["src/main/typescript/*"]
     },
     "outDir": "build",
+    "lib": ["es7"],
     "target": "es5"
   },
   "files": [
+    "scripts/builder.ts",
     "src/main/index.ts",
     "src/test/index.ts"
   ],

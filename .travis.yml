@@ -12,12 +12,7 @@ script:
 - env
 - echo "$GITHUB_TOKEN"
 - cat .npmrc
-env:
-  global:
-    # NPM_TOKEN
-    secure: DOnwUgvOT7jy7f0qV6jN+uwWDQ9vtbL7iRAKfHruExUydJoX2G35hJZ2iDHCwCzGOi8hKvFBay903rLif4e/LRFpIBmVQunpsnTX60bE6Y6BpTGxhDr014v3D8I40+ABuByWq8gotT0EzzK0mYFa+DC4NS2oXO58/4iGc2vF2+TqwhA9XFA5Nv9BRoDsm9ylOlM6nkdD0GXnzYeVnAJOVfQO3FE1KAXMQic+J9aAj8baBh/exdF67iK95ubZ7dGy3BZIhp0jtKWWKGRRReCYu+YRifRApR2kHtQOCR3uQKHLMwQLb+y7Ww+RcHh7LSXs9Xt9Ztk/0QHTbr6Wm9pO+E2cjHNERRP1kDGv59fDbJniKw/AM6DUnLZo47wPMDSCl1yHLNtTB3kkfPQjfuPwMZCVtrUuzaQyRrYaDQnE8m5UnNckAynfKM7dXJXyE1rKWfmrV7EgTcpbhy5D2jH3TVqQQTSqfFsQ6uNbgU8n+vwlsOLj80L20sQzJj/xkWlh8OOpt7FD/OAGg7uf2tAd1VU35kAlSfV04BaIueHK9iSuAC+cM6PUKrGhEF15XwW1feop2kFEDXfAyiIJ1Y98D+rkYaNCUIEJllG/EJAuVYdxSi+i825x6UjFIKlvqql5x+i026eMjD6e8p7ALpt+FTtAJUttmzWYRa5fVNQD38Y=
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH="$HOME/.yarn/bin:$PATH"
-  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc

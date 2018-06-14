@@ -1,13 +1,15 @@
 language: node_js
 node_js:
-- 8
+  - 8
+branches:
+  only:
+    - master
 cache:
   yarn: true
   directories:
-  - "./node_modules"
+    - "./node_modules"
 script:
-- env
-- echo "$GITHUB_TOKEN"
+  - ts-node ./scripts/builder.ts
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash

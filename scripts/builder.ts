@@ -12,6 +12,14 @@ class Builder extends NPMBuilder {
   async publish() {
     this.tasks.log('skipping publish');
   }
+
+  async verifyNonRelease() {
+    this.tasks.log('non release is fine');
+  }
+
+  async verifyRelease() {
+    this.tasks.log('release is fine');
+  }
 }
 
 async function main() {

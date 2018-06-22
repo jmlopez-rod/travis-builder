@@ -1,26 +1,26 @@
 language: node_js
 node_js:
-  - 8
+- 8
 branches:
   only:
-    - master
+  - master
 cache:
   yarn: true
   directories:
-    - "./node_modules"
-
+  - "./node_modules"
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH="$HOME/.yarn/bin:$PATH"
-
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH="$HOME/.yarn/bin:$PATH"
 script:
-  - make build && ts-node ./scripts/builder.ts
-
+- make travis
 after_failure:
-  - echo $TRAVIS_TEST_RESULT
-
+- echo $TRAVIS_TEST_RESULT
 after_success:
-  - echo $TRAVIS_TEST_RESULT
-
+- echo $TRAVIS_TEST_RESULT
 after_script:
-  - cat tcBuilderMessages.json
+- cat tcBuilderMessages.json
+env:
+  global:
+  # SLACK: channel and credentials
+  - secure: umrxoAaUxAaYYhh8+cAu+HckywWY6+CrYoI/wYlK1Gk7Be3HDwZ4q/QLZL9pspoLwTizdGz0axoipdrtWwiJCWlbEeBS+qjbCOlnA3/SyOpNcxD09mbSaDwvdQqExAPsQYuS661pFIqRM3eVZO8H5asrbssQeOSvpTGLM1DpzbL/eHNyOKtMo7bs05rp5DHtsjd9L6Oz0BjxUWGWctvm+BUjlLw6vWU42PkhaYWfUXptWobTPXo561M6H/vjUyC1h1EK/wHiJPQmhIB58UDeNbKuLEBtY8v06NOegvZJjy8hwhepN6Z/X4zaYja2aIFAvf7ThRfgS14qlYYKpoGOBRTfc1MaCkbAgMKxsVW3X8zhkjeZbIp3L53rlAMHvJ0s8RTdB5wqKSQUbYEnYsVBWdt8Lp+lIDUffI+hNjsvQJh9nRXy9agP0OjfSfFnGH7qZc1tNICwbtqu5930NqsxDpTwaUaVLfkt789D9ze4iAwZ49J7OTEmNB8pt92oDBRskQM5Bk+4H6E2iKq7YULtzYEOlchr+ev6PXx3S1ZSAgQMsGjDBXiqPo/9pffalJTbpBdJEPgBTslj6W4xuEpM4CyHkPyI6sQXDUfunazscsTffedoFLaW0SauEIQHGS/LVN+Nk6byS17iaMtoTyc5dKn0Ppfzd18Xdeza21Y8u0A=
+  - secure: S9rrNzH/NKRc/B5ee2Oke3b8GBGE76ubHFrp1nshEJkUH24ETS1m5boWjJoUiM8OPDUNZ5E4mDGZIwOBEmH3yQJ7IH7E7sG5DtG/B0/On9d9n7XTk+qGPB5ELbPTfaqUKRFB9ccILu/zpbjCCbqtDeBpZUQ7J+oE/1xiaEu5sFoMFRVVLvnKOoDlfPnPXi4Z4sY/7vW1svzpU/jXg8M64SxUM5zukmEf/iiQSeoWsUiwqLt3u4KozeSL4VhZ7FDF9FZZRnoD2rX3FKYGwVKSWF1tbEB8GbI/Shsk1I7yc2DaUe2LR4NA7AeeKXRG1Vhuwe/dwK2PGZ5ZJlHTmokhkdZGpxnDQwijT0cYk1mkJeO6ix+Wvp3OFWZ8gwZZc/Qec9l4FNbI9tUX1sCrp2DunW06WhyYsR3M4r3Xf6UbZv/M1RXAWaQXSZ5vZZC7t2nYA4oc1Ef6tME/TeuYDWHyBCcBoG4QzWO4Pp9miabV0Ve3/HUYDjVGOPpaT9Lzy8qW5CPMjeWujO8XGjjIbJZDjL5MRIq33AxgW15ZALowROZiwAbYBKE6R1uGk0ufyhpgjXs2HATDIOFKgURfMW1/wCyIw/1hD2UFV2K6Ma5C2Qb1exg8P1lpLH26lunwa5iyS0HDMGsMNHrBFfWK74S0Yc7Rvn+SVrgQbBer/lYNmlU=

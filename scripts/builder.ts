@@ -5,7 +5,7 @@ class Builder extends NPMBuilder {
     this.io.log('skipping tests');
     this.io.log('one more log line');
     this.io.log('why not...');
-    return this.io.failure('failing the build...');
+    return this.io.failure('4 tests failed');
   }
 
   async beforePublish() {

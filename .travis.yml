@@ -25,3 +25,5 @@ after_success:
 
 after_script:
   - echo $TRAVIS_TEST_RESULT
+  - ls -al
+  - env

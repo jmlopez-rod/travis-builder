@@ -3,6 +3,8 @@ import { NPMBuilder, runBuilder } from '@ioffice/tc-builder';
 class Builder extends NPMBuilder {
   async test() {
     this.io.log('skipping tests');
+    this.io.log('one more log line');
+    this.io.log('why not...');
   }
 
   async beforePublish() {

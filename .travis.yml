@@ -13,12 +13,8 @@ before_install:
 - export PATH="$HOME/.yarn/bin:$PATH"
 script:
 - make travis
-after_failure:
-- echo $TRAVIS_TEST_RESULT
-after_success:
-- echo $TRAVIS_TEST_RESULT
 after_script:
-- cat tcBuilderMessages.json
+- tc-builder slack-notify
 env:
   global:
   # SLACK: channel and credentials

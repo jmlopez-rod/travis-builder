@@ -1,43 +1,33 @@
-import { NPMBuilder } from '@ioffice/tc-builder';
+import { NPMBuilder, runBuilder } from '@ioffice/tc-builder';
 
 class Builder extends NPMBuilder {
   async test() {
-    this.tasks.log('skipping tests');
+    this.io.log('skipping tests');
   }
 
   async beforePublish() {
-    this.tasks.log('skipping before publish');
+    this.io.log('skipping before publish');
   }
 
   async publish() {
-    this.tasks.log('skipping publish');
+    this.io.log('skipping publish');
+    return '0.0.0-fake';
   }
 
   async verifyNonRelease() {
-    this.tasks.log('non release is fine');
+    this.io.log('non release is fine');
   }
 
   async verifyRelease() {
-    this.tasks.log('release is fine');
+    this.io.log('release is fine');
   }
 }
 
 async function main() {
-  let exitNumber: number;
-  const builder = new Builder();
-
-  try {
-    await builder.run();
-    exitNumber = 0;
-    builder.tasks.log('Process is done.');
-  } catch (err) {
-    builder.tasks.error(err);
-    builder.tasks.log('Process has failed.');
-    exitNumber = 1;
-  }
+  const { code } = await runBuilder(Builder);
 
   process.on('exit', () => {
-    process.exit(exitNumber);
+    process.exit(code);
   });
 }
 

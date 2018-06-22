@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@ioffice/tc-builder@^1.3.0-beta.1806202125":
-  version "1.3.0-beta.1806202125"
-  resolved "https://registry.yarnpkg.com/@ioffice/tc-builder/-/tc-builder-1.3.0-beta.1806202125.tgz#1785e4ddcf763c5025bdfb04a197baf7a2cc5440"
+"@ioffice/tc-builder@^1.3.0-beta.1806212344":
+  version "1.3.0-beta.1806212344"
+  resolved "https://registry.yarnpkg.com/@ioffice/tc-builder/-/tc-builder-1.3.0-beta.1806212344.tgz#2fab199f3f9df451ddec52a46d41eea10159ac6d"
 
 "@ioffice/tslint-config-ioffice@0.4.1":
   version "0.4.1"

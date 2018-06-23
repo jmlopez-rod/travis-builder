@@ -1,5 +1,9 @@
 import { NPMBuilder, runBuilder } from '@ioffice/tc-builder';
 
+function flow() {
+  throw new Error('testing the stack trace');
+}
+
 class Builder extends NPMBuilder {
   async test() {
     this.io.log('skipping tests');
@@ -20,7 +24,12 @@ class Builder extends NPMBuilder {
 
   async verifyNonRelease() {
     this.io.warn('unable to do something on non-release check...');
-    return this.io.failure('non release is not good...');
+    try {
+      flow();
+    } catch (err) {
+      err.message = `Failed in non-release: ${err.message}`;
+      return this.io.failure(err);
+    }
   }
 
   async verifyRelease() {

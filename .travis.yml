@@ -1,27 +1,22 @@
 language: node_js
 node_js:
-  - 8
+- 8
 branches:
   only:
-    - master
-cache:
-  yarn: true
-  directories:
-    - "./node_modules"
-
+  - master
+cache: yarn
+env:
+  global:
+  # SLACK_CHANNEL_1
+  - secure: "bkJSt9KoBcrmpi7N6xU2OEczd3C66MgtwLRdn/epwdTf2FI3m9/LnYduKsGOZBJ51KX4ky6sMx7uEFWP5/l5dpF19kOVpg9oC2CtQY2YgeWMakKVT8fn7bbB8obSatNg+Pi/TO/Yb09Lo3k6ABXCYCUmrgyk+elG7KHZvaZV0ZmXoV1u8THjs4p7HsVN4wcjYa1YnbnnqXWTxjzIzmgJdaE8hSQhwkeohNhFYEOrGv1Mp5r+cjumNmQyhWj0fqOJeukfJKmhlTHU0PV38MvZM/FqP5hXTojxFlwsLNmNwhfD0HF6WNapZpEogKgkh1ZBBwMZ0FfKAPTI8cQG1U+fU/6/+B6tUzio6C+t/IdyZyPA0TTD+2L+tt2rq/tInZsfAqLeeUtzg8fkcyxppAi5zo5opj9fMOGNUTV01I9t4q6OXtkakwBUDajcw3ZeXHGU+R6gGW5rOgNMOHaWL1VQ8qgrt5Z1KvUU+HrshIJ1YXcXeE9JWzZvr6f01d7sEbRS8q0eFsWQqjrQLZu4cxoQqEuPF1iMFHwQGaVljZAuly6TvWORbNBIxacLq5hhv+l35JRJvrIp2wx8UdGSQ67+XfMyo0QO+7uiV+z6Q4RsjFMzkx5kB5tWdsDmyxYHnrEf6xQhLNGyLMNxUXcvStqekIWA8CZ9F6N6zuNi7v03EwU="
+  # SLACK_CHANNEL_2
+  - secure: "LEqWHVQn/xkUb+z4b4Pn2n7VM4OK9IHqzyzxCrL43N3RWA+RHzw4vYJQjsnyxweBFbZvUNXX4rGbQiO5whOVWjZqUImDY+vUXofzHG3er93CVGLR4SOWfilyBeqjKhu8DKAneFhpeEbvm/beS3wpFAm2kpXYXdMwdo847PJVTZITYgc1C+/xK7Z+KS1MnA+TJMN/qPS4MmdfwM14tsHbiG7oArNlOpWrcdk8y6MQICu1X8y9PwoXyN8E0enhMLGh+zhH+JWykYSW/YkSCIkDJBeNn6bKHkd6e3YOLDsLkLpREvhH+9Ff3UK+H9MI2DE2SMMZC9PkSW06XFjCDx4iDpBhEBmswCK/mAtU9KwKtwsJ9MLoYMdNytsXa/qVCJHQsD23I0/s4Rpj1edLNbqxPt4eXuZz1uGYqlXWVecYTwhStbXKrrQR6kcj3J75dKZvw4CYHO4vUCrWf/rH8DOAmGDCmLkT43vpRHV54CNB68aqLWsToBtuzT4PIqkaGfmeEiO6xx3SdAza5bYis8RQQ4kzTR9v5Ef5xEuyfVsT4QofAz4WBwfiwxlMfDcFlTad3HQ7IrV6yVQ6KwdMZU64lO0RgJk/lA3SVdToZBbXilT9zHIh49gKdcjWt/HIlnC8pHDNkNmNB/XpPMQDANTmpYZfU96p4yktBnH3Qfntb3A="
 before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH="$HOME/.yarn/bin:$PATH"
-
+- curl -o- -L https://yarnpkg.com/install.sh | bash
+- export PATH="$HOME/.yarn/bin:$PATH"
+install:
+- yarn install
 script:
-  - make build
-  - ts-node ./scripts/builder.ts
-
-after_failure:
-  - echo $TRAVIS_TEST_RESULT
-
-after_success:
-  - echo $TRAVIS_TEST_RESULT
-
+- make travis
 after_script:
-  - echo $TRAVIS_TEST_RESULT
+- tc-builder slack-notify

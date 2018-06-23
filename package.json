@@ -30,6 +30,6 @@
     "typescript": "2.9.2"
   },
   "dependencies": {
-    "@ioffice/tc-builder": "^1.3.0-beta.1806202125"
+    "@ioffice/tc-builder": "^1.3.0-beta.1806231129"
   }
 }

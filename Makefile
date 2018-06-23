@@ -11,8 +11,8 @@ docs: FORCE
 serveDocs:
 	cd docs; python -m SimpleHTTPServer 8000
 
-tcBuild: info build
-	tc-builder run
+travis: build
+	ts-node ./scripts/builder.ts
 
 ## Dependencies
 

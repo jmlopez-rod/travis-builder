@@ -20,7 +20,7 @@ class Builder extends NPMBuilder {
 
   async verifyNonRelease() {
     this.io.warn('unable to do something on non-release check...');
-    this.io.log('non release is fine');
+    return this.io.failure('non release is not good...');
   }
 
   async verifyRelease() {

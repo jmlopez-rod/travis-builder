@@ -28,7 +28,7 @@ class Builder extends NPMBuilder {
   }
 
   async afterVerifyPullRequest() {
-    console.warn('oops, something wrong on after verify');
+    this.io.warn('oops, something wrong on after verify');
   }
 }
 

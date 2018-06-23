@@ -17,4 +17,5 @@ install:
 script:
 - make travis
 after_script:
+- cat ./tcBuilderMessages.json
 - tc-builder slack-notify
